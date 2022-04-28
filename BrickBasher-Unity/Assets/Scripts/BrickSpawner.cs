@@ -2,8 +2,8 @@
  * Created by: Bob Baloney
  * Date Created: April 20, 2022
  * 
- * Last Edited by: 
- * Last Edited:
+ * Last Edited by: Kameron Eaton
+ * Last Edited: April 28, 2022
  * 
  * Description: Spawns bircks
 ****/
@@ -16,8 +16,8 @@ using UnityEngine;
 public class BrickSpawner : MonoBehaviour
 {
    
-    public GameObject brickPrefab; 
-    public float paddingBetweenBricks = 0.25f; 
+    public GameObject brickPrefab; //reference to brick prefab
+    public float paddingBetweenBricks = 0.25f; //padding between instantiated bricks
     private Vector2 brickPadding = new Vector2(0,0);  
 
 
@@ -34,12 +34,11 @@ public class BrickSpawner : MonoBehaviour
         {
             for(int x=0; x < 7; x++)
             {
-                Vector3 pos = new Vector3(x * brickPadding.x , y * brickPadding.y, 0); 
-              
-                brickGo = Instantiate.brickPrefab; 
-              
-                brickGo.transform.parent = transform; 
-                brickGo.transform.localPosition = pos; 
+                Vector3 pos = new Vector3(x * brickPadding.x , y * brickPadding.y, 0);
+
+                GameObject brickGo = Instantiate(brickPrefab); //create GameObject to reference instantiated brick
+                brickGo.transform.parent = transform; //same parent positon
+                brickGo.transform.localPosition = pos; //new position with adjusted padding
 
             }//end for(int x=0; x < 9; x++)
         }//end for (int y=0; y < 9; y++)
